@@ -8,11 +8,20 @@ require("includes/header.php");
     <h1 class="w3-jumbo"><b>Jays Nest Robotic Delivery</b></h1>
     <h1 class="w3-xxxlarge w3-text-red"><b>Database.</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-  </div>
+ </div>
 
   <?php
   echo "Welcome to the home page of the Jays Nest Robotic Delivery Service Website.";
   ?>
+
+   <!-- Photo grid (modal) -->
+   <div class="w3-row-padding">
+    <div class="w3-half">
+      <img src="images/maxresdefault.jpg" style="width:100%" onclick="onClick(this)" alt="Jays Nest Entrance">
+    </div>
+
+    
+     </div>
 
 <?PHP
 require("includes/footer.php");
