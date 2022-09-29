@@ -11,7 +11,7 @@ require("includes/header.php");
   </div>
 
   <?php
-  echo "Welcome to the main page of the Jays Nest Robotic Delivery Service Website.";
+  echo "Welcome to the home page of the Jays Nest Robotic Delivery Service Website.";
   ?>
 
 <?PHP
