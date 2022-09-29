@@ -14,14 +14,23 @@ require("includes/header.php");
   echo "Welcome to the home page of the Jays Nest Robotic Delivery Service Website.";
   ?>
 
-   <!-- Photo grid (modal) -->
-   <div class="w3-row-padding">
+<!-- Photo grid (modal) -->
+<div class="w3-row-padding">
     <div class="w3-half">
       <img src="images/maxresdefault.jpg" style="width:100%" onclick="onClick(this)" alt="Jays Nest Entrance">
     </div>
 
     
-     </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">x</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+</div>
 
 <?PHP
 require("includes/footer.php");
