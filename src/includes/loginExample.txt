@@ -1,0 +1,34 @@
+<?php
+
+session_start();
+$status = $_SESSION["loggedIn"];
+
+?>
+<html>
+    <head>
+        <title> CIA website
+</title>
+</head>
+<body>
+    <?php
+    if($loggedIn != "YES"){
+
+    
+    ?>
+    Welcome to the CIA website
+
+    <img src= "images/umbrella2.jpg" >
+
+    <form method = "post" action = "login.php" >
+    Username: <input type= "text" name="username"> <br>
+</br>
+    Password: <input type= "password" name= "password">
+    <br>
+</br>
+    <input type= "submit" value= "Login" >
+<?php
+    }
+    //else { echo"Welcome! Click here <a href = 'secret.php'> </a>for intfo on company picnic"}
+?>
+
+</form>

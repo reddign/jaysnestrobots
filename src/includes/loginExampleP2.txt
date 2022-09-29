@@ -1,0 +1,20 @@
+<?php
+
+session_start();
+
+$username = $_POST["username"];
+$password = $_POST["password"];
+
+// check auth
+if($username == "ninja" && $password == "ninja2527"){
+    echo "you are in";
+
+}else{
+    echo "your credentials are wrong";
+    exit;
+}
+
+//login
+$_SESSION["loggedIn"]= "YES";
+
+?>
