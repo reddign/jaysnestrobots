@@ -12,6 +12,7 @@
     <a href="<?php echo $path; ?>confirmation.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Confirmation</a> 
     <a href="<?php echo $path; ?>menu.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Menu</a> 
     <a href="<?php echo $path; ?>map.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Map</a>     
+    <a href="<?php echo $path; ?>about.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a>  
   </div>
   
  
