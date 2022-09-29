@@ -5,22 +5,16 @@
    <img width="200px" src="<?php echo $path; ?>images/deptLogoBottom.jpg">
     <h3 class="w3-padding-34"><b>Jays Nest Robotic Delivery</b></h3>
   </div>
-  <?php
- /*
+ 
   <div class="w3-bar-block">
-    <a href="<?php echo $path; ?>index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="<?php echo $path; ?>students.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Students</a> 
-    <a href="<?php echo $path; ?>companies.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Companies</a> 
-    <a href="<?php echo $path; ?>contacts.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contacts</a> 
-    <a href="<?php echo $path; ?>openings.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Job Openings</a> 
-    <a href="<?php echo $path; ?>meetings.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Meetings</a> 
-    <a href="<?php echo $path; ?>survey.php"="w3_close()" class="w3-bar-item w3-button w3-hover-white">Student Interest Survey</a> 
-    <a href="<?php echo $path; ?>import.php"="w3_close()" class="w3-bar-item w3-button w3-hover-white">Data Import</a> 
-    <a href="<?php echo $path; ?>about.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a>
-    
+    <a href="<?php echo $path; ?>home.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="<?php echo $path; ?>order.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Order</a> 
+    <a href="<?php echo $path; ?>confirmation.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Confirmation</a> 
+    <a href="<?php echo $path; ?>menu.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Menu</a> 
+    <a href="<?php echo $path; ?>map.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Map</a>     
   </div>
-  */
- ?>
+  
+ 
 </nav>
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-blue w3-xlarge w3-padding">
