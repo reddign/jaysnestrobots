@@ -8,6 +8,9 @@ require("includes/header.php");
     <h1 class="w3-jumbo"><b>About</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
  </div>
+<?php
+ echo "The Jays Nest Robotic Delivery was a project from the CS341 Software Engineering during the Fall of 2022.";
+?>
 
  <?PHP
 require("includes/footer.php");
