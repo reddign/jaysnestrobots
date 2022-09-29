@@ -18,3 +18,5 @@ if($username == "ninja" && $password == "ninja2527"){
 $_SESSION["loggedIn"]= "YES";
 
 ?>
+
+// DONT FORGET TO LOG OUT use session_destroy();
