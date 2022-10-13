@@ -8,6 +8,8 @@ require("includes/header.php");
     <h1 class="w3-jumbo"><b>Confirmation</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
  </div>
+ <?php
 echo "Your order is confirmed and will be ready in 10 - 15 minutes."
+?>
  <?PHP
 require("includes/footer.php");
