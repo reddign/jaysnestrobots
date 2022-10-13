@@ -1,6 +1,7 @@
 <?PHP
 $path = '';
 require("includes/header.php");
+//This page will be worked on once we have a definite list of items to build a menu
 ?>
 
  <!-- Header -->
@@ -9,5 +10,7 @@ require("includes/header.php");
     <hr style="width:50px;border:5px solid red" class="w3-round">
  </div>
 
+
+   
  <?PHP
 require("includes/footer.php");

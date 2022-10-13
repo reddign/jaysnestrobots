@@ -1,6 +1,7 @@
 <?PHP
 $path = '';
 require("includes/header.php");
+//Once we develpo a list of locations for delivery we can make a map and highlight these locations
 ?>
 
  <!-- Header -->
