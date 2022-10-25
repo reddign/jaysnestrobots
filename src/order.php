@@ -1,6 +1,8 @@
 <?PHP
 $path = '';
 require("includes/header.php");
+//We can start working on this page while developing the map and item list
+//but will need to update it once deliverables are complete
 ?>
 
  <!-- Header -->
