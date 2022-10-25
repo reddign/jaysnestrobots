@@ -1,7 +1,8 @@
 <?php
-$loggedIn = "NO";
+
 session_start();
-//$status = $_SESSION["loggedIn"];
+
+$loggedIn = "NO";
 
 //basic style
 ?>
@@ -23,13 +24,12 @@ require("includes/header.php");
 <body>
     <?php
     if($loggedIn != "YES"){
-
+        echo "You are logged in";
     
     ?>
-    Please login
 
 
-    <form>
+    <form method = "post" action = "loginConfirm.php" >
     Username: <input type= "text" name="username"> <br>
 </br>
     Password: <input type= "password" name= "password">
@@ -37,8 +37,9 @@ require("includes/header.php");
 </br>
     <input type= "submit" value= "Login" >
 <?php
+
     }
-    //else { echo"Welcome! Click here <a href = 'secret.php'> </a>for intfo on company picnic"}
+    else { echo"Please login";}
 ?>
 
 </form>
