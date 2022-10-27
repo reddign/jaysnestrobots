@@ -10,6 +10,27 @@ require("functions/menu_functions.php");
     <h1 class="w3-jumbo"><b>Menu</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
  </div>
+<<<<<<< HEAD
+=======
+
+ <iframe width="1000" height="500" frameborder="0" scrolling="no" src="https://elizabethtown-my.sharepoint.com/:x:/g/personal/bednara_etown_edu/EffX_7Ze_-dGrozdANRRUoMBvyNfCKLhk3K6CDkCpMZDgg?e=kP7HCp&action=embedview&wdbipreview=true">
+<?php
+ echo "Large bag of chips
+ Small bag of chips
+ 16 oz bottle of soda
+ 16 oz can of soda
+ Gum
+ M&Ms
+ Hershey ice cream tubs
+ Assorted breads
+ Gatorade 20 oz
+ Gatorade 24 oz
+ Gatorade 28 oz
+ Quest protein bars
+ Skittles
+ Snickers";
+?>
+>>>>>>> f2c85b9d81da94d215724059d00e6bdc5eb93245
  <?PHP
 //Sets the page value for display
 $page = isset($_GET["page"])?$_GET["page"]:"mto";
