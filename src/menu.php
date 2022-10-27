@@ -11,6 +11,21 @@ require("includes/header.php");
  </div>
 
  <iframe width="1000" height="500" frameborder="0" scrolling="no" src="https://elizabethtown-my.sharepoint.com/:x:/g/personal/bednara_etown_edu/EffX_7Ze_-dGrozdANRRUoMBvyNfCKLhk3K6CDkCpMZDgg?e=kP7HCp&action=embedview&wdbipreview=true">
- 
+<?php
+ echo "Large bag of chips
+ Small bag of chips
+ 16 oz bottle of soda
+ 16 oz can of soda
+ Gum
+ M&Ms
+ Hershey ice cream tubs
+ Assorted breads
+ Gatorade 20 oz
+ Gatorade 24 oz
+ Gatorade 28 oz
+ Quest protein bars
+ Skittles
+ Snickers";
+?>
  <?PHP
 require("includes/footer.php");
