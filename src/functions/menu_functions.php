@@ -1,6 +1,6 @@
 <?PHP
 
-function display_student_page_navigation($currentPage){
+function display_menu_page_navigation($currentPage){
     $navHTML  = '<h4><div style="margin-top:5px;margin-bottom:45px;">';
     $navHTML .= '<a href="menu.php?page=mto" class="selected">MTO Food</a>';
     $navHTML .= ' | ';
