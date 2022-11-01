@@ -10,6 +10,7 @@ require("includes/header.php");
  </div>
 <?php
  echo "The Jays Nest Robotic Delivery was a project from the CS341 Software Engineering during the Fall of 2022.";
+ echo "Authors: August Bednar, Simon Burleson, and Freddie Sanchez"
 ?>
 
  <?PHP
