@@ -1,10 +1,8 @@
 <?php
-
 session_start();
 
 $loggedIn = "NO";
-
-//basic style
+$wrong = "NO";
 ?>
 <?PHP
 $path = '';
@@ -22,24 +20,29 @@ require("includes/header.php");
        
 </head>
 <body>
-    <?php
-    if($loggedIn != "YES"){
-        echo "You are logged in";
-    
-    ?>
 
-
-    <form method = "post" action = "loginConfirm.php" >
-    Username: <input type= "text" name="username"> <br>
-</br>
-    Password: <input type= "password" name= "password">
-    <br>
-</br>
-    <input type= "submit" value= "Login" >
 <?php
-
+    if(isset($_SESSION["wrong"]) == "YES"){
+        echo "Wrong credentials, try again";
     }
-    else { echo"Please login";}
+?>
+
+        <form method = "post" action = "loginConfirm.php">
+        Username: <input type= "text" name="username"> <br>
+    </br>
+        Password: <input type= "password" name= "password">
+        <br>
+    </br>
+        <input type= "submit" value= "Login" >
+
+<?php
+if(isset($_SESSION["loggedIn"]) != "YES"){
+    echo "Please Log in";
+}
+else{
+    echo "You are logged in!";
+}
+
 ?>
 
 </form>
