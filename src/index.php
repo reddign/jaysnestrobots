@@ -1,4 +1,9 @@
 <?PHP
+
+session_start();
+//$status = $_SESSION["loggedIn"];
+$loggedIn = isset($_SESSION["loggedIn"])?$_SESSION["loggedIn"]:"NO";
+
 $path = '';
 require("includes/header.php");
 ?>
@@ -32,5 +37,27 @@ require("includes/header.php");
     </div>
 </div>
 
+<br>
+</br>
+
+<html>
+
+<?php
+if( $loggedIn == "YES"){
+  echo "You are logged in";
+}
+else{
+  echo "You are not logged in";
+
+?>
+
+
+<form method = "post" action = "login.php" >
+    <input type= "submit" value= "log in" >
+</form>
+
+</html>
+
 <?PHP
+}
 require("includes/footer.php");
