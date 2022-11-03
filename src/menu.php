@@ -4,7 +4,10 @@ require("includes/header.php");
 require("functions/menu_functions.php");
 //This page will be worked on once we have a definite list of items to build a menu
 
- echo "Large bag of chips
+
+ echo "
+ MENU:
+ Large bag of chips
  Small bag of chips
  16 oz bottle of soda
  16 oz can of soda
@@ -17,9 +20,13 @@ require("functions/menu_functions.php");
  Gatorade 28 oz
  Quest protein bars
  Skittles
- Snickers";
-
- 
+ Snickers
+ Water bottle
+ Gallon of water
+ Turkey Hill juices
+ ";
+?>
+ <?PHP
 //Sets the page value for display
 $page = isset($_GET["page"])?$_GET["page"]:"mto";
 display_menu_page_navigation("Menu");
