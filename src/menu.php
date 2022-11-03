@@ -1,6 +1,9 @@
 <?PHP
 $path = '';
 require("includes/header.php");
+require("../config.php");
+require("functions/basic_html_functions.php");
+require("functions/database_functions.php");
 require("functions/menu_functions.php");
 //This page will be worked on once we have a definite list of items to build a menu
 
