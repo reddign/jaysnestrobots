@@ -10,6 +10,8 @@ require("includes/header.php");
     <h1 class="w3-jumbo"><b>Order</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
  </div>
-
+ <?php
+ echo "You can only order up to 3 items."
+ ?>
  <?PHP
 require("includes/footer.php");
