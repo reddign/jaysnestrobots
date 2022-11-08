@@ -21,9 +21,7 @@ function get_all_items_from_snd($cat){
 }
 function display_mto_menu(){
     $cat = 'mto';
-    get_all_items_from_mto($cat);
-    echo
-    '<li><iframe width="1000" height="500" frameborder="0" scrolling="no" src="https://elizabethtown-my.sharepoint.com/:x:/g/personal/bednara_etown_edu/EffX_7Ze_-dGrozdANRRUoMBvyNfCKLhk3K6CDkCpMZDgg?e=kP7HCp&action=embedview&wdbipreview=true"></li>';
+    display_food_list();
 
 }
 
@@ -32,4 +30,20 @@ function display_snd_menu(){
     get_all_items_from_snd($cat);
     echo "Coming Soon!";
 
+}
+function get_all_food_from_db(){
+    $pdo = connect_to_db();
+    $data = $pdo->query("SELECT * FROM items order by category,fType")->fetchAll();
+    return $data;
+}
+function display_food_list($data=null){
+    if(!is_array($data)){
+        echo "";
+        return;
+    }
+    foreach ($data as $row) {
+            echo "<p>";
+            echo $row['price']." ".$row['item']." ".$row['description']." ".$row['weight']."<br />\n";
+            echo "</p>";
+    }
 }

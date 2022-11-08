@@ -37,7 +37,7 @@ display_menu_page_navigation("Menu");
 switch($page){
    case "mto":
      $string = isset($_GET["mto"])?$_GET["mto"]:"";
-     display_mto_menu();
+     get_all_food_from_db();
      break;
    case "snd":
      display_snd_menu();
