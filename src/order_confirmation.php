@@ -9,7 +9,7 @@ require("includes/header.php");
     <hr style="width:50px;border:5px solid red" class="w3-round">
  </div>
  <?php
-echo "Your order is confirmed and will be ready in 10 - 15 minutes."
-?>
+ echo "Your order is confirmed and will be ready in 10 - 15 minutes."
+ ?>
  <?PHP
 require("includes/footer.php");
