@@ -1,6 +1,6 @@
 <?php
 $databasehost = "localhost";
-$database = "jaysbots";
+$database = "mydb";
 $databaseuser = "root";
 $databasepassword = "";
 ?>
