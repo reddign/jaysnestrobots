@@ -15,3 +15,29 @@ require("includes/header.php");
  ?>
  <?PHP
 require("includes/footer.php");
+
+?>
+
+<html>
+   <label for="items"> Select type of food:</label>
+   <select name="items" id="items"></select>
+   <?php
+   //dropdown for general food type
+   while(sql querey for list length){
+      <option value="sql query for item"</option>
+   };
+
+   //dropdown select based on above 2
+   ?>
+
+   <form id="make_checkbox_select">
+   <select name="make">
+      <?php
+      while(sql querey for list lenght){
+
+      }
+      
+
+
+   
+</html>
