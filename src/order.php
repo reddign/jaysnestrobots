@@ -24,9 +24,9 @@ require("includes/footer.php");
 
    // connect to db
    $servername = "156.67.74.51";
-   $user= "u413142534_jaysnest";
+   $user= "u413142534_robots";
    $pass= "v?TQs9Bye#";
-   $dbname = "jaysRobots";
+   $dbname = "u413142534_jaysnest";
 
    $con = new mysqli($servername, $user, $pass, $dbname);
 
