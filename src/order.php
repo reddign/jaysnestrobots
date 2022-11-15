@@ -12,32 +12,46 @@ require("includes/header.php");
  </div>
  <?php
  echo "You can only order up to 3 items."
+
+ // create dropdown with food category values
  ?>
+
+ <html>
+   <label for="items"> Select type of food:</label>
+   <select name="items" id="items"></select>
  <?PHP
 require("includes/footer.php");
 
-?>
+   // connect to db
+   $servername = "156.67.74.51";
+   $user= "u413142534_jaysnest";
+   $pass= "v?TQs9Bye#";
+   $dbname = "jaysRobots";
 
-<html>
-   <label for="items"> Select type of food:</label>
-   <select name="items" id="items"></select>
-   <?php
+   $con = new mysqli($servername, $user, $pass, $dbname);
+
+   if ($con->connect_error) {
+      die("Connection failed: " . $con->connect_error);
+    }
+
    //dropdown for general food type
-   while(sql querey for list length){
-      <option value="sql query for item"</option>
-   };
+   $sql = "SELECT count(distinct ftype) as num_type from items ";
+   $result =  $con->query($sql);
 
-   //dropdown select based on above 2
+   $x = $result;
+   while($x>0){
+
+   $type = $result->num_type;
    ?>
+      <option value= <?php $type ?> ></option>
 
-   <form id="make_checkbox_select">
-   <select name="make">
       <?php
-      while(sql querey for list lenght){
+      $x--;
+   }
 
-      }
-      
-
-
+   $row = $result->fetch_assoc();
+   echo $row["num_type"];
+   ?>
+   </select>
    
-</html>
+   </html>
