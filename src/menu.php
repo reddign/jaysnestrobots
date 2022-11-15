@@ -2,12 +2,15 @@
 $path = '';
 require("../config.php");
 require("functions/basic_html_functions.php");
+
 require("functions/database_functions.php");
+
 require("functions/menu_functions.php");
-//This page will be worked on once we have a definite list of items to build a menu
 require("includes/header.php");
 
+//This page will be worked on once we have a definite list of items to build a menu
 
+/*
  echo "
  MENU:
  Large bag of chips
@@ -28,19 +31,27 @@ require("includes/header.php");
  Gallon of water
  Turkey Hill juices
  ";
+ */
+
 ?>
  <?PHP
 //Sets the page value for display
-$page = isset($_GET["page"])?$_GET["page"]:"mto";
+$page = isset($_GET["page"])?$_GET["page"]:"search";
 display_menu_page_navigation("Menu");
 
 switch($page){
+   case "search":
+    $string = isset($_GET["search"])?$_GET["search"]:"";
+      $food = get_food_by_name($string);
+      display_search_form();
+      display_food_list($food);
+     break;
    case "mto":
      $string = isset($_GET["mto"])?$_GET["mto"]:"";
-     get_all_food_from_db();
+     //display_food_list(null);
      break;
    case "snd":
-     display_snd_menu();
+     //display_snd_menu();
      break;
  }
 

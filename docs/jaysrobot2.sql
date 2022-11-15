@@ -28,20 +28,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
-<<<<<<< HEAD
--- Table `mydb`.`cart`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`cart` (
-  `item` VARCHAR(45) NOT NULL,
-  `total weight` INT NULL,
-  'price' INT NOT NULL,
-  PRIMARY KEY (`item`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
-=======
->>>>>>> 0c5fe3404561cca9a83fbf0c2ad1ea6d852e7f6b
 -- Table `mydb`.`order`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`order` (
@@ -49,13 +35,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`order` (
   `studentID` VARCHAR(45) NULL,
   `Items` VARCHAR(45) NULL,
   `student_ID` INT NOT NULL,
-<<<<<<< HEAD
-  `cart_item` VARCHAR(45) NOT NULL,
-  'price' INT NOT NULL,
-=======
->>>>>>> 0c5fe3404561cca9a83fbf0c2ad1ea6d852e7f6b
   PRIMARY KEY (`ID`),
-  INDEX `fk_order_student1_idx` (`student_ID` ASC) VISIBLE,
+  INDEX `fk_order_student1` (`student_ID` ASC) VISIBLE,
   CONSTRAINT `fk_order_student1`
     FOREIGN KEY (`student_ID`)
     REFERENCES `mydb`.`student` (`ID`)
@@ -84,8 +65,8 @@ CREATE TABLE IF NOT EXISTS `mydb`.`robot` (
   `order_ID` INT NOT NULL,
   `employee_ID` INT NOT NULL,
   PRIMARY KEY (`ID`, `order_ID`),
-  INDEX `fk_robot_order1_idx` (`order_ID` ASC) VISIBLE,
-  INDEX `fk_robot_employee1_idx` (`employee_ID` ASC) VISIBLE,
+  INDEX `fk_robot_order1` (`order_ID` ASC) VISIBLE,
+  INDEX `fk_robot_employee1` (`employee_ID` ASC) VISIBLE,
   CONSTRAINT `fk_robot_order1`
     FOREIGN KEY (`order_ID`)
     REFERENCES `mydb`.`order` (`ID`)
@@ -108,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`cart` (
   `cartID` INT NULL,
   `order_ID` INT NOT NULL,
   PRIMARY KEY (`cartID`),
-  INDEX `fk_cart_order1_idx` (`order_ID` ASC) VISIBLE,
+  INDEX `fk_cart_order1` (`order_ID` ASC) VISIBLE,
   CONSTRAINT `fk_cart_order1`
     FOREIGN KEY (`order_ID`)
     REFERENCES `mydb`.`order` (`ID`)
@@ -129,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`items` (
   `category` VARCHAR(45) NULL,
   `fType` VARCHAR(45) NULL,
   PRIMARY KEY (`item`),
-  INDEX `fk_items_cart1_idx` (`cart_item` ASC) VISIBLE,
+  INDEX `fk_items_cart1` (`cart_item` ASC) VISIBLE,
   CONSTRAINT `fk_items_cart1`
     FOREIGN KEY (`cart_item`)
     REFERENCES `mydb`.`cart` (`item`)
