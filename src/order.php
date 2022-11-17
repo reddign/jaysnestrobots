@@ -16,16 +16,12 @@ require("includes/header.php");
  // create dropdown with food category values
  ?>
 
- <html>
-   <label for="items"> Select type of food:</label>
-   <select name="items" id="items"></select>
  <?PHP
-require("includes/footer.php");
 
    // connect to db
    $servername = "156.67.74.51";
    $user= "u413142534_robots";
-   $pass= "v?TQs9Bye#";
+   $pass= "R0b0tsRul3";
    $dbname = "u413142534_jaysnest";
 
    $con = new mysqli($servername, $user, $pass, $dbname);
@@ -35,23 +31,38 @@ require("includes/footer.php");
     }
 
    //dropdown for general food type
+   /*
    $sql = "SELECT count(distinct ftype) as num_type from items ";
    $result =  $con->query($sql);
-
-   $x = $result;
-   while($x>0){
-
-   $type = $result->num_type;
-   ?>
-      <option value= <?php $type ?> ></option>
-
-      <?php
-      $x--;
-   }
-
    $row = $result->fetch_assoc();
-   echo $row["num_type"];
+   $num_type = $row["num_type"];
+   $id = $num_type;
+    */
+
+    ?>
+   <html>
+      <div>
+         <h1>
+   <from name = "ItemTypeDrop">
+   <label for="items" style = "margin-left: 300px"> Select type of food:</label>
+   <select name="items" id="items"  style = "width:25%" <?=$disable ?>>
+   <?php
+   $sql = "SELECT unique ftype from items as ftype";
+   foreach($con->query($sql) as $row){
+      ?>
+      <option value= "type"><?php echo $row["ftype"] ?></option>
+      <?php
+   }
    ?>
    </select>
-   
+   </form>
+   <script>
+      var form = ItemTypeDrop.item;
+      var DropResult = document.getElementById('DropResult');
+      DropResult.innerHTML = ()
+   </script>
+   </h1>
    </html>
+   <?php
+   require("includes/footer.php");
+   ?>
