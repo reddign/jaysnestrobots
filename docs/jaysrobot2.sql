@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `u413142534_jaysnest`.`order` (
   `Items` VARCHAR(45) NULL DEFAULT NULL,
   `student_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ID`),
-  INDEX `fk_order_student1_idx` (`student_ID` ASC) VISIBLE,
+  INDEX `fk_order_student1` (`student_ID` ASC) VISIBLE,
   CONSTRAINT `fk_order_student1`
     FOREIGN KEY (`student_ID`)
     REFERENCES `u413142534_jaysnest`.`student` (`ID`)
@@ -113,19 +113,53 @@ CREATE TABLE IF NOT EXISTS `u413142534_jaysnest`.`robot` (
   PRIMARY KEY (`ID`, `order_ID`),
   INDEX `fk_robot_order1_idx` (`order_ID` ASC) VISIBLE,
   INDEX `fk_robot_employee1_idx` (`employee_ID` ASC) VISIBLE,
-  CONSTRAINT `fk_robot_employee1`
-    FOREIGN KEY (`employee_ID`)
-    REFERENCES `u413142534_jaysnest`.`employee` (`ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_robot_order1`
     FOREIGN KEY (`order_ID`)
     REFERENCES `u413142534_jaysnest`.`order` (`ID`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_robot_employee1`
+    FOREIGN KEY (`employee_ID`)
+    REFERENCES `u413142534_jaysnest`.`employee` (`ID`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `u413142534_jaysnest`.`cart`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `u413142534_jaysnest`.`cart` (
+  `item` VARCHAR(45) NULL,
+  `total weight` INT NULL,
+  `cartID` INT NULL,
+  `order_ID` INT NOT NULL,
+  PRIMARY KEY (`cartID`),
+  INDEX `fk_cart_order1_idx` (`order_ID` ASC) VISIBLE,
+  CONSTRAINT `fk_cart_order1`
+    FOREIGN KEY (`order_ID`)
+    REFERENCES `u413142534_jaysnest`.`order` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `u413142534_jaysnest`.`items`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `u413142534_jaysnest`.`items` (
+  `item` VARCHAR(45) NOT NULL,
+  `weight` INT NULL,
+  `descrip` VARCHAR(45) NULL,
+  `cart_item` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`item`),
+  INDEX `fk_items_cart1_idx` (`cart_item` ASC) VISIBLE,
+  CONSTRAINT `fk_items_cart1`
+    FOREIGN KEY (`cart_item`)
+    REFERENCES `u413142534_jaysnest`.`cart` (`item`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

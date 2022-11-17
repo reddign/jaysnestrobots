@@ -1,4 +1,6 @@
 <?php
+include "../config.php";
+
 function connect_to_db(){
 
     global $database,$databasehost,$databaseuser,$databasepassword;

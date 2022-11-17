@@ -2,12 +2,25 @@
 $path = '';
 require("../config.php");
 require("functions/basic_html_functions.php");
+
 require("functions/database_functions.php");
+
 require("functions/menu_functions.php");
-//This page will be worked on once we have a definite list of items to build a menu
 require("includes/header.php");
+?>
+<!-- Header -->
+<div class="w3-container" style="margin-top:80px" id="showcase">
+   <h1 class="w3-jumbo"><b>Menu</b></h1>
+   <hr style="width:50px;border:5px solid red" class="w3-round">
+</div>
+<?PHP
 
+echo "Below is the current menu of MTO (Made to Order) and general snacks offered to be deliverd from the Jay's Nest. ";
+echo "Items may be added directly into the current cart by hitting the 'Add to Cart' button next to the desired item. \n"
 
+//This page will be worked on once we have a definite list of items to build a menu
+
+/*
  echo "
  MENU:
  Large bag of chips
@@ -28,19 +41,32 @@ require("includes/header.php");
  Gallon of water
  Turkey Hill juices
  ";
+ */
+
 ?>
  <?PHP
 //Sets the page value for display
-$page = isset($_GET["page"])?$_GET["page"]:"mto";
+$page = isset($_GET["page"])?$_GET["page"]:"all";
 display_menu_page_navigation("Menu");
 
 switch($page){
+   case "all":
+    $string = isset($_GET["all"])?$_GET["all"]:"";
+      $food = get_food_by_name($string);
+      display_search_form();
+      display_food_list($food);
+     break;
    case "mto":
-     $string = isset($_GET["mto"])?$_GET["mto"]:"";
-     get_all_food_from_db();
+    $string = isset($_GET["mto"])?$_GET["mto"]:"";
+      $food = get_mto_by_name($string);
+      display_search_form();
+      display_food_list($food);
      break;
    case "snd":
-     display_snd_menu();
+    $string = isset($_GET["snd"])?$_GET["snd"]:"";
+      $food = get_snd_by_name($string);
+      display_search_form();
+      display_food_list($food);
      break;
  }
 
