@@ -24,8 +24,6 @@ $sql = "INSERT INTO order_item(orderID, itemID) VALUES ( :order,:item)";
 
 $params = [":order"=>$orderNum,":item"=>$i];
 
- 
-
 //send this query to the database with a parameterized query
 
  
