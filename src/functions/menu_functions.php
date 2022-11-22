@@ -93,3 +93,7 @@ function display_food_list($data=null){
     }
 }
 
+function addToCart($itemID, $orderID){
+    $sql = "INSERT INTO orders(orderID, itemID) VALUES ($itemID, $orderID)";
+}
+
