@@ -55,7 +55,7 @@ require("includes/header.php");
    }
    ?>
    </select>
-   ?php
+<?php
 $product_array = $db_handle->runQuery("SELECT * FROM items ORDER BY item ASC");
 if (!empty($product_array)) { 
 	foreach($product_array as $key=>$value){
