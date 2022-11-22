@@ -74,7 +74,7 @@ function display_food_list($data=null){
     }
     foreach ($data as $row) {
 
-        echo '<form method="post"><input type="submit" name="$row" value="Add to Cart" ></form>';
+        echo '<form method="post"><input type="submit" name="$row" value="Add to Cart" >';
         echo "\t";
         echo "<a>";
         echo "$".number_format((float)$row['price'], 2, '.', '');
@@ -83,7 +83,8 @@ function display_food_list($data=null){
         if(isset($_POST['$row'])){
             //echo 'added '.$row['description'].' to cart';
             "INSERT INTO cart(price, description, weight) VALUES (:price, :description,:weight)";
-        }        
+        }     
+        echo '</form>';  
     }
 }
 
