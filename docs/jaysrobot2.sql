@@ -152,6 +152,7 @@ CREATE TABLE IF NOT EXISTS `u413142534_jaysnest`.`items` (
   `weight` INT NULL,
   `descrip` VARCHAR(45) NULL,
   `cart_item` VARCHAR(45) NOT NULL,
+  'price' VARCHAR(45) NOT NULL,
   PRIMARY KEY (`item`),
   INDEX `fk_items_cart1_idx` (`cart_item` ASC) VISIBLE,
   CONSTRAINT `fk_items_cart1`

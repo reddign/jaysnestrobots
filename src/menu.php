@@ -46,26 +46,18 @@ echo "Items may be added directly into the current cart by hitting the 'Add to C
 ?>
  <?PHP
 //Sets the page value for display
-$page = isset($_GET["page"])?$_GET["page"]:"all";
+$page = isset($_GET["page"])?$_GET["page"]:"mto";
 display_menu_page_navigation("Menu");
 
 switch($page){
-   case "all":
-    $string = isset($_GET["all"])?$_GET["all"]:"";
-      $food = get_food_by_name($string);
-      display_search_form();
-      display_food_list($food);
-     break;
    case "mto":
     $string = isset($_GET["mto"])?$_GET["mto"]:"";
       $food = get_mto_by_name($string);
-      display_search_form();
       display_food_list($food);
      break;
    case "snd":
     $string = isset($_GET["snd"])?$_GET["snd"]:"";
       $food = get_snd_by_name($string);
-      display_search_form();
       display_food_list($food);
      break;
  }

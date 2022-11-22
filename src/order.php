@@ -35,6 +35,36 @@ require("includes/header.php");
       <div>
 
          <h1>
+   <from name = "ItemTypeDrop">
+   <label for="items" style = "margin-left: 300px"> Select type of food:</label>
+   <select name="items" id="items"  style = "width:25%" <?=$disable ?>>
+   <?php
+   $sql = "SELECT unique ftype from items as ftype";
+   foreach($con->query($sql) as $row){
+      ?>
+      <option value= "type"><?php echo $row["ftype"] ?></option>
+      <?php
+   }
+   ?>
+   </select>
+<?php
+$product_array = $db_handle->runQuery("SELECT * FROM items ORDER BY item ASC");
+if (!empty($product_array)) { 
+	foreach($product_array as $key=>$value){
+?>
+	<div class="product-item">
+		<form method="post" action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+		<div class="product-tile-footer">
+		<div class="product-title"><?php echo $product_array[$key]["descrip"]; ?></div>
+		<div class="product-price"><?php echo "$".$product_array[$key]["price"]; ?></div>
+		<div class="cart-action"><input type="text" class="product-quantity" name="quantity" value="1" size="2" /><input type="submit" value="Add to Cart" class="btnAddAction" /></div>
+		</div>
+		</form>
+	</div>
+<?php
+	}
+}
+?>
    <label for="FtypeForm" style = "margin-left: 250px"> Select type of food:</label>
    <form name = "FtypeForm">
       <select id = "s1" name = "FtypeSelect"  style = "margin-left: 250px height :20% width:25%" onchange = "itemsdrop()" >
