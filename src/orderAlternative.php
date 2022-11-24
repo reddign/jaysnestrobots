@@ -1,16 +1,9 @@
 <?PHP
 
 session_start();
-$loggedIn = $_SESSION["loggedIn"];
-
-if($loggedIn != "YES"){
-   ?>
-   <html> 
-      <input type="submit" value = "Login">
-   </html>
-      <?php
-}
-
+$loggedIn = isset($_SESSION["loggedIn"]);
+$added = "no";
+$NumAdded;
 $path = '';
 require("includes/header.php");
 //We can start working on this page while developing the map and item list
@@ -23,12 +16,21 @@ require("includes/header.php");
     <hr style="width:50px;border:5px solid red" class="w3-round">
  </div>
  <?php
+ if(!$loggedIn){
+
+   header("Location: http://localhost/jaysnestrobots/src/login.php", TRUE, 301);
+   ?>
+   <?php
+}
+?>
+
+ <?php
  // connect to db
  $servername = "156.67.74.51";
  $user= "u413142534_robots";
  $pass= "R0b0tsRul3";
  $dbname = "u413142534_jaysnest";
- echo "You can only order up to 3 items."
+ echo "You can only order up to 3 items.";
 
  // create dropdown with food category values
  ?>
@@ -67,9 +69,13 @@ require_once("../config.php");
 
       <?php
    }
-
-
-  
+   ?>
+   <br>
+   <?
+   echo $added;
+   if($_SESSION['NumAdded'] == 3){
+      echo "Max number of items in cart";
+   }
    ?>
    </select>
    <input type="submit" value="Add to Order" name = "true">

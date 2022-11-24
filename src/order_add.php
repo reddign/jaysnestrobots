@@ -3,26 +3,70 @@ session_start();
 //uncomment below for final part but for now just using hardcoded value
 $studentID = 3801642;
 //$studentID = $_SESSION["username"];
+$servername = "156.67.74.51";
+ $user= "u413142534_robots";
+ $pass= "R0b0tsRul3";
+ $dbname = "u413142534_jaysnest";
 
+ $con = new mysqli($servername, $user, $pass, $dbname);
+
+ if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+  }
 // orderID should be studentID followed by the number of orders they have made up to 1000 orders
 //ex: 38016420001 would be the order ID for
 // my first order. student ID 3801642,followed by 0001 because it is my first order
 
 //cartID should be 1 cart per student so cartID = studentID
 
-$item = $_GET["itemID"];
-$true = $_GET["true"];
-$price = $con->query("SELECT price from items where itemID = $item");
-$descrip = $con->query("SELECT description from items where itemID = $item");
-echo $item;
-echo $true;
-//if($true == "Add to Order"){
-   // addToCart($item,$studentID);
-//}
+$itemID = $_GET["itemID"];
+echo $itemID;
 
-function addToCart($itemID, $studentID){
-    $sql = "INSERT INTO cart(item,cartID,price,description) 
-    VALUES ($itemID, $studentID,$price,$descrip )";
+$true = $_GET["true"];
+echo $true;
+
+$result = $con->query("SELECT price from items where itemID = $itemID");
+while ($row = $result->fetch_assoc()) {
+    $price = $row['price'];
+    
+}
+echo $price;
+
+$result = $con->query("SELECT description from items where itemID = $itemID");
+while ($row = $result->fetch_assoc()) {
+    $descrip = $row['description'];
+}
+echo $descrip;
+
+echo "Adding to cart...";
+
+$result = $con->query("SELECT count(*) from cart as NumCart where cartID = $studentID");
+while ($row = $result->fetch_assoc()) {
+    $NumCartItem = $row['count(*)'];
+    
 }
 
+//if max hasnt been reached go through
+if($NumCartItem>=3){
+    $_SESSION['Numadded'] = $NumCartItem;
+    header("Location: http://localhost/jaysnestrobots/src/orderAlternative.php", TRUE, 301);
+}
+
+else{
+$PK = ($studentID*10)+$NumCartItem;
+echo $PK;
+
+$sql = "INSERT INTO cart(itemID,cartID,price,descrip,studentID) 
+VALUES ($itemID,$studentID,$price,'$descrip',$PK)";
+
+$con->query($sql);
+
+$_SESSION['added'] = "yes";
+
+
+if(isset($_SESSION['added'])){
+    header("Location: http://localhost/jaysnestrobots/src/orderAlternative.php", TRUE, 301);
+}
+}
 ?>
+</html>
