@@ -3,7 +3,6 @@
 session_start();
 $loggedIn = isset($_SESSION["loggedIn"]);
 $added = "no";
-$NumAdded;
 $path = '';
 require("includes/header.php");
 //We can start working on this page while developing the map and item list
@@ -71,14 +70,38 @@ require_once("../config.php");
    }
    ?>
    <br>
-   <?
-   echo $added;
-   if($_SESSION['NumAdded'] == 3){
-      echo "Max number of items in cart";
-   }
-   ?>
    </select>
    <input type="submit" value="Add to Order" name = "true">
    
+
 </form>
-   </html>
+</html>
+   <?php
+      if(isset($_SESSION['NumCartItem']) && $_SESSION['NumCartItem'] == 3){
+         //echo $_SESSION['NumCartItem'];
+         ?>
+
+         <html>
+         <p1> max number of items in cart<?echo $_SESSION['NumCartItem'] ?> </p1>
+         </html>
+         <br>
+      </br>
+         <?php
+      }
+   ?>
+   <?php
+   if(isset($_SESSION['added']) == "yes" && isset($_SESSION['descrip']) && $_SESSION['NumCartItem'] != 3){
+      //echo $description "added to cart";
+      ?>
+      <html>
+      <p2> <?php echo $_SESSION['descrip'] ?> added to cart </p2>
+      </html>
+      <?php
+   }
+   ?>
+<html>
+<form action="http://localhost/jaysnestrobots/src/cart.php">
+    <input type="submit" value="Go to Cart" />
+</form>
+</html>
+

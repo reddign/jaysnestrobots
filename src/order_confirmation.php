@@ -10,6 +10,8 @@ require("includes/header.php");
  </div>
  <?php
  echo "Your order is confirmed and will be ready in 10 - 15 minutes."
+
+ //create progress bar for robot delivery
  ?>
  <?PHP
 require("includes/footer.php");

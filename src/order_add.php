@@ -37,7 +37,7 @@ while ($row = $result->fetch_assoc()) {
     $descrip = $row['description'];
 }
 echo $descrip;
-
+$_SESSION['descrip'] = $descrip;
 echo "Adding to cart...";
 
 $result = $con->query("SELECT count(*) from cart as NumCart where cartID = $studentID");
@@ -45,10 +45,10 @@ while ($row = $result->fetch_assoc()) {
     $NumCartItem = $row['count(*)'];
     
 }
+$_SESSION['NumCartItem'] = $NumCartItem;
 
 //if max hasnt been reached go through
 if($NumCartItem>=3){
-    $_SESSION['Numadded'] = $NumCartItem;
     header("Location: http://localhost/jaysnestrobots/src/orderAlternative.php", TRUE, 301);
 }
 
@@ -63,8 +63,10 @@ $con->query($sql);
 
 $_SESSION['added'] = "yes";
 
+echo "\n";
+echo $NumCartItem;
 
-if(isset($_SESSION['added'])){
+if($_SESSION['added'] == "yes" && isset($NumCartItem)){
     header("Location: http://localhost/jaysnestrobots/src/orderAlternative.php", TRUE, 301);
 }
 }
