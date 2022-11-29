@@ -40,9 +40,9 @@ echo $descrip;
 $_SESSION['descrip'] = $descrip;
 echo "Adding to cart...";
 
-$result = $con->query("SELECT count(*) from cart as NumCart where cartID = $studentID");
+$result = $con->query("SELECT count(*) as numCart from cart where cartID = $studentID");
 while ($row = $result->fetch_assoc()) {
-    $NumCartItem = $row['count(*)'];
+    $NumCartItem = $row['numCart'];
     
 }
 $_SESSION['NumCartItem'] = $NumCartItem;
@@ -64,7 +64,7 @@ $con->query($sql);
 $_SESSION['added'] = "yes";
 
 echo "\n";
-echo $NumCartItem;
+echo $_SESSION['NumCartItem'];
 
 if($_SESSION['added'] == "yes" && isset($NumCartItem)){
     header("Location: http://localhost/jaysnestrobots/src/orderAlternative.php", TRUE, 301);

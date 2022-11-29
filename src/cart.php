@@ -28,7 +28,19 @@ require("includes/header.php");
  $user= "u413142534_robots";
  $pass= "R0b0tsRul3";
  $dbname = "u413142534_jaysnest";
+ $studentID = 3801642;
  echo "You can only order up to 3 items.";
+ 
+ // get cart data from db
+ $sql = "SELECT * from cart where cartID = 3801642";
+
+ $con = new mysqli($servername, $user, $pass, $dbname);
+
+ if ($con->connect_error) {
+    die("Connection failed: " . $con->connect_error);
+  }
+
+  $result = $con->query($sql);
 
  // create cart
  ?>
@@ -41,20 +53,30 @@ table, th, td {
  
  <table style="width:100%">
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Item</th>
+    <th>Price</th>
+    <th></th>
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste<button type= "button"> remove </button></td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
+    <?php
+    if(isset($_SESSION['NumCartItem'])){
+      $numItems = $_SESSION['NumCartItem'];
+    }
+
+      while($row = $result->fetch_array(MYSQLI_BOTH)){
+        $ItemDesc = $row['descrip'];
+      ?>
+      <tr>
+      <th> <?php echo $ItemDesc;?></th>
+      <?php
+      $ItemPrice = $row['price'];
+      ?>
+      <th> <?php echo $ItemPrice;?></th>
+      <th> <button type= "button"> remove </button></th>
+      </tr>
+      <?php
+      }
+      
+    ?>
 </table>
 
 <form action="http://localhost/jaysnestrobots/src/orderAlternative.php">
