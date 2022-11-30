@@ -51,27 +51,33 @@ table, th, td {
 }
 </style>
  
- <table style="width:100%">
+ <table name= "table" style="width:100%">
   <tr>
+    
     <th>Item</th>
     <th>Price</th>
-    <th></th>
   </tr>
     <?php
-    if(isset($_SESSION['NumCartItem'])){
-      $numItems = $_SESSION['NumCartItem'];
-    }
 
       while($row = $result->fetch_array(MYSQLI_BOTH)){
         $ItemDesc = $row['descrip'];
+        $CartItemNum = $row['studentID'];
       ?>
       <tr>
-      <th> <?php echo $ItemDesc;?></th>
+        <form method = "get" action=RemoveFromCart.php>
+        <label for="item"></label>
+
+      <th> <input type= "hidden" name = "item" value = "<?php echo $CartItemNum;?>"> <?php echo $ItemDesc;?></th>
+
       <?php
       $ItemPrice = $row['price'];
       ?>
+
       <th> <?php echo $ItemPrice;?></th>
-      <th> <button type= "button"> remove </button></th>
+
+      <th><input type="submit" value = "remove"></th>
+
+      </form>
       </tr>
       <?php
       }
@@ -83,7 +89,18 @@ table, th, td {
     <input type="submit" value="return to order" />
 </form>
 
-<form action=>
+<form method = "post" action="http://localhost/jaysnestrobots/src/addOrder.php">
+   <label for="loc"> SELECT DELIVERY LOCATION:</label>
+   <select name="Location" id="Location">
+   <option value = loc0> </option>
+    <option value = AcademicQuads> Academic Quads </option>
+    <option value = BowersCenter> Bowers Center </option>
+    <option value = OberCourtyard> Ober Courtyard </option>
+    <option value = Founders/Hackman Area> Founders/Hackman Area </option>
+    <option value = Schlosser> Schlosser </option>
+    <option value = SchriberQuads> Schriber Quads </option>
+</select>
+
     <input type="submit" value="confirm order" style = "margin-right: 200px"/>
 </form>
 
