@@ -8,7 +8,7 @@
  
   <div class="w3-bar-block">
     <a href="<?php echo $path; ?>index.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="<?php echo $path; ?>order.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Order</a> 
+    <a href="<?php echo $path; ?>orderAlternative.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Order</a> 
     <a href="<?php echo $path; ?>order_confirmation.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Confirmation</a> 
     <a href="<?php echo $path; ?>menu.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Menu</a> 
     <a href="<?php echo $path; ?>map.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Map</a>     

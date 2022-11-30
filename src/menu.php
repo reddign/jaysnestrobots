@@ -1,5 +1,11 @@
 <?PHP
 $path = '';
+session_start();
+
+if(!isset($_SESSION["CurrentOrderNum"])){
+  $_SESSION["CurrentOrderNum"] = random_int(2,20);
+}
+
 require("../config.php");
 require("functions/basic_html_functions.php");
 
