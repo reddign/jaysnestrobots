@@ -38,9 +38,7 @@ $servername = "156.67.74.51";
     $result2 = $con->query("INSERT into ordering (orderID,itemID,price,location,descrip,studentID) values($orderID,$itemID,'$price','$location','$descrip',$studentID)");
 }
 
-    echo $itemID;
-    echo $descrip;
-    echo $price;
+  $con->query("DELETE from cart where cartID = $studentID");
 
     header("Location: http://localhost/jaysnestrobots/src/order_confirmation.php", TRUE, 301);
 ?>
