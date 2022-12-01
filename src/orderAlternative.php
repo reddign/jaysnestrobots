@@ -97,6 +97,7 @@ require_once("../config.php");
       <p2> <?php echo $_SESSION['descrip'] ?> added to cart </p2>
       </html>
       <?php
+      $_SESSION['added'] = "no";
    }
    ?>
 <html>
