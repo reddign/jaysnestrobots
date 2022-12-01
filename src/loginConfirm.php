@@ -5,12 +5,19 @@ session_start();
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-if($username == "ninja" && $password == "ninja2527"){
+$emp;
+$empID;
+
+if(($username == "ninja" && $password == "ninja2527")|| ($username == "employee" && $password == "employee2527")){
 
     $_SESSION["loggedIn"] = "YES";
     $_SESSION["username"] = $username;
     echo "YOU ARE LOGGED IN!";
     //check for session variable working
+    if(($username == "employee" && $password == "employee2527")){
+        $_SESSION['emp'] = "yes";
+        $_SESSION['empID'] = 1;
+    }
 
     
     }

@@ -15,7 +15,7 @@ $servername = "156.67.74.51";
   }
 
   $location = $_POST['Location'];
-  echo $location;
+  //echo $location;
 
   $result = $con->query("SELECT count(*) as NumOrders from ordering where studentID  = $studentID");
 
@@ -26,19 +26,24 @@ $servername = "156.67.74.51";
   $result->free();
 
   $orderID = ($studentID*100) + $NumOrders;
-  echo $orderID;
+  //echo $orderID;
 
   $result = $con->query("SELECT * from cart where cartID = $studentID");
-
+  $x=0;
   while ($row = $result->fetch_assoc()) {
     $itemID = $row['itemID'];
     $price = $row['price'];
     $descrip = $row['descrip'];
+    //echo $descrip;
+
+    $orderID = $orderID+$x;
 
     $result2 = $con->query("INSERT into ordering (orderID,itemID,price,location,descrip,studentID) values($orderID,$itemID,'$price','$location','$descrip',$studentID)");
+
+    $x = $x+1;
 }
 
-  $con->query("DELETE from cart where cartID = $studentID");
+    $con->query("DELETE from cart where cartID = $studentID");
 
     header("Location: http://localhost/jaysnestrobots/src/order_confirmation.php", TRUE, 301);
 ?>
