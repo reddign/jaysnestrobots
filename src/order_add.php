@@ -56,10 +56,18 @@ else{
 $PK = ($studentID*10)+$NumCartItem;
 echo $PK;
 
+$result = $con->query("SELECT studentID from cart where exists (Select * from cart where studentID = '$PK')");
+    while($row = $result->fetch_assoc()){
+        if($PK  = $row['studentID']){
+            $PK = $PK -1;
+            $result = $con->query("SELECT studentID from cart where exists (Select * from cart where studentID = '$PK')");
+        }
+    }
+
 $sql = "INSERT INTO cart(itemID,cartID,price,descrip,studentID) 
 VALUES ($itemID,$studentID,$price,'$descrip',$PK)";
 
-$con->query($sql);
+$result = $con->query($sql);
 
 $_SESSION['added'] = "yes";
 
